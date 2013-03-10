@@ -3,10 +3,9 @@ In the name of Allah
 
 POSTagger version 1.0
 ===================
-   10 January 2013
------------------------
+      10 January 2013
 
-This is the README for the "POSTagger" package which can helps for predicting
+This is the README for the *"POSTagger" package* which can helps for predicting
 fine-grained and/or coarse-grained POS tags of dependency treebank. This package 
 has been developed by [Mojtaba Khallash] (mailto: mkhallash@gmail.com) from _Iran 
 University of Science  and Technology (IUST)_.
@@ -39,21 +38,21 @@ Table of contents
 ----------------
 
 Requirements:
-* Version 1.7 or later of the Java 2 SDK (http://java.sun.com)
-  You must add java binary file to system path. In linux, your
-  can open ~/.bashrc file and append this line:
-    PATH=$PATH:/<address-of-bin-folder-of-JRE>
+* Version 1.7 or later of the [Java 2 SDK] (http://java.sun.com)
+You must add java binary file to system path. <br/>In linux, your
+can open `~/.bashrc` file and append this line:
+`PATH=$PATH:/<address-of-bin-folder-of-JRE>`
 
 To compile the code, first decompress the package:
 
 in linux:
-$ tar -xvzf POSTagger.tgz
-$ cd POSTagger
-$ sh compile_all.sh
+> tar -xvzf POSTagger.tgz
+> cd POSTagger
+> sh compile_all.sh
 
 in windows:
-- decompress the POSTagger.zip
-- compile.bat
+> decompress the POSTagger.zip
+> compile.bat
 
 You can open the all projects in NetBeans 7.1 (or maybe later) too.
 
