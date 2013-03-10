@@ -1,0 +1,34 @@
+1. Preprocess: Create Trainig and Test Data for pos tagger
+----------------------------------------------------------
+// Create Train file from "FPOS" exist in CoNLL
+java -jar POSTagger.jar -v 0 -mode D2T -i input.conll -o output.lbl -g 1 -t fpos
+
+// Create Train file from "CPOS" exist in CoNLL
+java -jar POSTagger.jar -v 0 -mode D2T -i input.conll -o output.lbl -g 1 -t cpos
+
+// Create test file from CoNLL
+java -jar POSTagger.jar -v 0 -mode D2T -i input.conll -o output.lbl -g 0
+____________________________________________________________________________________________
+
+2. Trainig pos tagger
+----------------------
+java -jar POSTagger.jar -v 0 -mode TR -i input.lbl -m model -iter 100
+____________________________________________________________________________________________
+
+3. Tagging
+-----------
+// Tagging and Evaluation with gold data
+java -jar POSTagger.jar -v 0 -mode TG -i input.lbl -m model -o output.lbl -g gold.lbl
+
+// Tagging without Evaluation
+java -jar POSTagger.jar -v 0 -mode TG -i input.lbl -m model -o output.lbl
+____________________________________________________________________________________________
+
+4. Postprocess: Add Predicted tags to conll format
+---------------------------------------------------
+
+// Add Predicted tag to "FPOS" conll format
+java -jar POSTagger.jar -v 0 -mode T2D -i tag.lbl -c conll.conll -o new.conll -t fpos
+
+// Add Predicted tag to "CPOS" conll format
+java -jar POSTagger.jar -v 0 -mode T2D -i tag.lbl -c conll.conll -o new.conll -t cpos
