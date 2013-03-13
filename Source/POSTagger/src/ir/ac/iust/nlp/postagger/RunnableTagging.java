@@ -60,6 +60,7 @@ public class RunnableTagging implements Runnable {
 
             String s;
             while ((s = stdError.readLine()) != null) {
+                System.out.println(s);
                 out.println(s);
                 if (s.equals("*Copyright (c) 1997 Adwait Ratnaparkhi*")) {
                     while ((line = inputReader.readLine()) != null) {
@@ -105,8 +106,9 @@ public class RunnableTagging implements Runnable {
                                 String goldTag = vals2[vals2.length - 1];
                                 goldTags.add(goldTag);
                                 
-                                if (predictTag.equals(goldTag))
+                                if (predictTag.equals(goldTag)) {
                                     correct++;
+                                }
                             }
                         }
                         outputWriter.write(newLine.toString() + "\n");
@@ -120,6 +122,7 @@ public class RunnableTagging implements Runnable {
             }
             p.destroy();
         } catch (Exception ex) {
+            ex.printStackTrace();
         } finally {
             if (inputReader != null) {
                 try {
@@ -135,8 +138,9 @@ public class RunnableTagging implements Runnable {
             }
             
                 int acc = 0;
-                if (correct != 0)
+                if (correct != 0) {
                     acc = (correct * 100) / total;
+                }
                 String res = "Total: " + total + 
                         " - Correct: " + correct + " - Accuracy: " + acc + "%";
             if (target != null) {

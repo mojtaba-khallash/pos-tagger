@@ -1140,9 +1140,20 @@ public class POSTaggerForm extends javax.swing.JFrame {
     public void UpdateList(List<String> words, List<String> predictTags,
             List<String> goldTags) {
         int count = words.size();
-        for (int i = 0; i < count; i++) {
-            wordModel.addElement(words.get(i));
-            predModel.addElement(predictTags.get(i));
+        count = Math.max(count, predictTags.size());
+        for (int i = 0, j = 0; i < count && j < count; i++, j++) {
+            String word = words.get(i);
+            while (word.length() == 0) {
+                i++;
+                word = words.get(i);
+            }
+            wordModel.addElement(word);
+            String tagged = predictTags.get(j);
+            while (tagged.length() == 0) {
+                j++;
+                tagged = predictTags.get(j);
+            }
+            predModel.addElement(tagged);
             if (goldTags != null && goldTags.size() == count) {
                 goldModel.addElement(goldTags.get(i));
             }
