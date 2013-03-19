@@ -1,5 +1,20 @@
 package ir.ac.iust.nlp.postagger;
 
+/*
+* Copyright (C) 2013 Iran University of Science and Technology
+*
+* This file is part of "POS Tagger" Project, as available 
+* from http://nlp.iust.ac.ir This file is free software;
+* you can redistribute it and/or modify it under the terms of the GNU General 
+* Public License (GPL) as published by the Free Software Foundation, in 
+* version 2 as it comes in the "COPYING" file of the VirtualBox OSE 
+* distribution. VirtualBox OSE is distributed in the hope that it will be 
+* useful, but WITHOUT ANY WARRANTY of any kind.
+*
+* You may elect to license modified versions of this file under the terms 
+* and conditions of either the GPL.
+*/
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import javax.swing.SwingUtilities;
@@ -26,14 +41,6 @@ public class POSTagger {
         int maxIter = 100;
         
         showIntroduction();
-        
-        POSTaggerForm application = new POSTaggerForm();
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            SwingUtilities.updateComponentTreeUI(application);
-            application.pack();
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
-        }
 
         boolean exception = false;
         try {
@@ -42,8 +49,9 @@ public class POSTagger {
                     case "-v":
                         i++;
                         String val = args[i];
-                        if (!(val.equals("0") || val.equals("1")))
+                        if (!(val.equals("0") || val.equals("1"))) {
                             throw new Exception();
+                        }
                         visisble = val.equals("1");
                         break;
                     case "-mode":
@@ -97,8 +105,9 @@ public class POSTagger {
             
             if (visisble == false && 
                 (input.length() == 0 ||
-                 (!mode.equals("TR") && output.length() == 0)))
+                 (!mode.equals("TR") && output.length() == 0))) {
                 throw new Exception();
+            }
         } catch (Exception e) {
             exception = true;
             visisble = false;
@@ -184,10 +193,18 @@ public class POSTagger {
                     }
                 }
             }
-            else
+            else {
                 showHelp();
+            }
         }
         
+        POSTaggerForm application = new POSTaggerForm();
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            SwingUtilities.updateComponentTreeUI(application);
+            application.pack();
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+        }
         application.setVisible(visisble);
     }
     

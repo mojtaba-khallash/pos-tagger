@@ -1154,7 +1154,7 @@ public class POSTaggerForm extends javax.swing.JFrame {
                 tagged = predictTags.get(j);
             }
             predModel.addElement(tagged);
-            if (goldTags != null && goldTags.size() == count) {
+            if (goldTags != null && goldTags.size() == words.size()) {
                 goldModel.addElement(goldTags.get(i));
             }
         }        
