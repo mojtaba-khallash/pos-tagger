@@ -131,7 +131,7 @@ Using implementation of the part-of-speech tagger described in [1].
 		
 For example:
 
-> java -jar POSTagger.jar -v 0 -mode TR -i input.lbl -o model -iter 100
+> java -jar POSTagger.jar -v 0 -mode TR -i input.lbl -m model -iter 100
 
 Requirements:
 * "[mxpost.jar] (http://www.inf.ed.ac.uk/resources/nlp/local_doc/MXPOST.html)" for tagging.
