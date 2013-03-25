@@ -121,6 +121,13 @@ public class RunnableTagging implements Runnable {
                 }
             }
             p.destroy();
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            if(goldFile != null) {
+                out.println("Error: Input and Gold file must be have same content.");
+            }
+            else {
+                ex.printStackTrace();
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
